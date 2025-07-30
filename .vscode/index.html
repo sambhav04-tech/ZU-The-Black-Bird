@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZÜ The Black Bird - Premium Spirits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #0a0a0a;
+            color: #e8e8e8;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #e8e8e8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="80" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="60" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .bird-silhouette {
+            position: absolute;
+            right: -10%;
+            top: 10%;
+            width: 60%;
+            height: 80%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><path d="M200 50 L180 80 L160 70 L140 90 L120 85 L100 110 L90 130 L85 150 L80 170 L85 190 L90 210 L100 230 L120 250 L140 270 L160 280 L180 290 L200 300 L220 290 L240 280 L260 270 L280 250 L300 230 L310 210 L315 190 L320 170 L315 150 L310 130 L300 110 L280 85 L260 90 L240 70 L220 80 Z M150 120 C150 115 155 110 160 110 S170 115 170 120 S165 130 160 130 S150 125 150 120 Z M230 120 C230 115 235 110 240 110 S250 115 250 120 S245 130 240 130 S230 125 230 120 Z" fill="%23000000" opacity="0.3"/></svg>') no-repeat center;
+            background-size: contain;
+            opacity: 0.2;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-content {
+            z-index: 10;
+            max-width: 800px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #d4af37, #f4e68c, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
+            to { text-shadow: 0 0 50px rgba(212, 175, 55, 0.8), 0 0 100px rgba(212, 175, 55, 0.3); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #c0c0c0;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #8b4513, #d4af37, #8b4513);
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.5);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #d4af37;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(139, 69, 19, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.3);
+        }
+
+        .product-card h3 {
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .product-card p {
+            color: #c0c0c0;
+            line-height: 1.6;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            margin: 5rem 0;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 20 L90 40 L80 35 L70 50 L60 45 L50 65 L45 75 L40 85 L35 95 L40 105 L45 115 L50 125 L60 135 L70 145 L80 150 L90 155 L100 160 L110 155 L120 150 L130 145 L140 135 L150 125 L155 115 L160 105 L165 95 L160 85 L155 75 L150 65 L140 45 L130 50 L120 35 L110 40 Z" fill="%23d4af37" opacity="0.1"/></svg>') no-repeat center;
+            background-size: contain;
+        }
+
+        .about-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #c0c0c0;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            background: #0a0a0a;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(139, 69, 19, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(139, 69, 19, 0.2);
+        }
+
+        .contact-item h3 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(139, 69, 19, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 0 1rem;
+            }
+            
+            .bird-silhouette {
+                display: none;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">ZÜ</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Premium Drink</a></li>
+                <li><a href="#about">Quality</a></li>
+                <li><a href="#contact">Craftsmanship</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="bird-silhouette"></div>
+        <div class="hero-content">
+            <h1>ZÜ : The Black Bird</h1>
+            <p>Where darkness meets refinement</p>
+            <a href="#products" class="cta-button">Experience Premium Excellence</a>
+        </div>
+    </section>
+
+    <section id="products" class="fade-in">
+        <h2 class="section-title">ZÜ : The Black Bird Premium Drink</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <h3>Exquisite Craftsmanship</h3>
+                <p>ZÜ : The Black Bird is a meticulously crafted premium drink using the finest ingredients sourced from around the world. Our master craftsmen employ time-honored techniques passed down through generations, creating a beverage of unparalleled complexity and sophistication.</p>
+            </div>
+            <div class="product-card">
+                <h3>Premium Flavor Profile</h3>
+                <p>Experience the rich tapestry of flavors - deep notes of dark chocolate and roasted coffee beans, complemented by hints of vanilla, caramel, and exotic spices. Each sip reveals new layers of complexity, finishing with a smooth, warming embrace that lingers beautifully.</p>
+            </div>
+            <div class="product-card">
+                <h3>Luxury Experience</h3>
+                <p>Presented in an elegantly crafted bottle that reflects the premium nature of its contents. ZÜ : The Black Bird is not just a drink - it's a statement of refined taste, perfect for those who appreciate the finer things in life and seek extraordinary experiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about fade-in">
+        <div class="about-content">
+            <h2 class="section-title">The Premium Spirit</h2>
+            <p>
+                ZÜ : The Black Bird represents the pinnacle of premium drinks craftsmanship. Crafted in small batches using only the finest ingredients and purest water, each bottle embodies decades of expertise and passion. Our unique creation process develops the distinctive character that sets ZÜ : The Black Bird apart from ordinary beverages.
+                <br><br>
+                The result is a premium drink of extraordinary depth and smoothness - a testament to our unwavering commitment to excellence. Every drop captures the essence of luxury, making ZÜ : The Black Bird the perfect choice for discerning connoisseurs who demand nothing but the best.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact fade-in">
+        <h2 class="section-title">Premium Craftsmanship</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>Artisan Creation</h3>
+                <p>Handcrafted in small batches<br>Using traditional methods</p>
+            </div>
+            <div class="contact-item">
+                <h3>Premium Ingredients</h3>
+                <p>Finest imported components<br>Pure mountain spring water</p>
+            </div>
+            <div class="contact-item">
+                <h3>Perfect Balance</h3>
+                <p>Carefully balanced flavors<br>Years of recipe perfection</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ZÜ : The Black Bird. All rights reserved. | Enjoy Responsibly.</p>
+        <p style="margin-top: 1rem; color: #d4af37;">For more help or contact: zutheblackbird@gmail.com</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add subtle parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const bird = document.querySelector('.bird-silhouette');
+            
+            if (hero && bird) {
+                bird.style.transform = `translateY(${scrolled * 0.3}px) rotate(${scrolled * 0.02}deg)`;
+            }
+        });
+
+        // Add interactive hover effects
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(-10px) rotateX(0deg) rotateY(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>
