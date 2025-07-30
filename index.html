@@ -195,6 +195,55 @@
             box-shadow: 0 15px 40px rgba(139, 69, 19, 0.5);
         }
 
+        /* Product Image Section */
+        .product-image-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .product-image:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.3);
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+
+        .image-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        }
+
         /* Sections */
         section {
             padding: 5rem 2rem;
@@ -378,6 +427,15 @@
                 flex-direction: column;
                 gap: 2rem;
             }
+
+            .product-image {
+                max-width: 250px;
+            }
+
+            .image-glow {
+                width: 300px;
+                height: 300px;
+            }
         }
 
         /* Scroll animations */
@@ -412,6 +470,14 @@
             <h1>ZÜ : The Black Bird</h1>
             <p>Where darkness meets refinement</p>
             <a href="#products" class="cta-button">Experience Premium Excellence</a>
+        </div>
+    </section>
+
+    <!-- Product Image Section -->
+    <section class="product-image-section fade-in">
+        <div class="product-image-container">
+            <div class="image-glow"></div>
+            <img src="zu-energy-drink.jpg" alt="ZÜ The Black Bird Premium Drink" class="product-image">
         </div>
     </section>
 
