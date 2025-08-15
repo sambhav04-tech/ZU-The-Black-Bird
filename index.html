@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZÜ The Black Bird - Premium Spirits</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ZÜ The Black Bird">
+    <link rel="manifest" href="manifest.json">
+    
     <style>
         * {
             margin: 0;
@@ -189,6 +197,29 @@
 
         .cta-button:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Install Button */
+        .install-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #ffffff, #e0e0e0);
+            color: #000000;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+            z-index: 1001;
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .install-button:hover {
+            transform: scale(1.05);
             box-shadow: 0 15px 40px rgba(255, 255, 255, 0.5);
         }
 
@@ -411,10 +442,6 @@
             color: #ffffff;
         }
 
-        footer p:last-child {
-            color: #ffffff;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -474,6 +501,9 @@
         </div>
     </nav>
 
+    <!-- Install App Button -->
+    <button id="install-button" class="install-button">Install App</button>
+
     <section id="home" class="hero">
         <div class="bird-silhouette"></div>
         <div class="hero-content">
@@ -487,7 +517,7 @@
     <section class="product-image-section fade-in">
         <div class="product-image-container">
             <div class="image-glow"></div>
-            <img src="zu-energy-drink.jpg" alt="ZÜ The Black Bird Premium Drink" class="product-image">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8xXzEpIj4KPHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8xXzEpIiByeD0iMjAiLz4KPHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgeD0iNTAiIHk9IjUwIj4KPHBhdGggZD0iTTUwIDIwIEw0NSAzNSBMMzggMjggTDMwIDQwIEwyMiAzNSBMMTUgNDggTDEwIDU1IEw4IDYyIEw2IDcwIEw4IDc4IEwxMCA4NSBMMTUgOTIgTDIyIDk4IEwzMCA5OCBMMzggOTUgTDQ1IDg4IEw1MCA4MCBMNTUgNzAgTDYwIDYwIEw2NSA1MCBMNzAgNDAiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMSIvPgo8L3N2Zz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xXzEiPgo8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0id2hpdGUiIHJ4PSIyMCIvPgo8L2NsaXBQYXRoPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfMV8xIiB4MT0iMTUwIiB5MT0iMCIgeDI9IjE1MCIgeTI9IjQwMCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMUExQTFBIi8+CjxzdG9wIG9mZnNldD0iMC41IiBzdG9wLWNvbG9yPSIjMDAwMDAwIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFBMUExQSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo=" alt="ZÜ The Black Bird Premium Drink" class="product-image">
         </div>
     </section>
 
@@ -544,6 +574,45 @@
     </footer>
 
     <script>
+        // PWA Install functionality
+        let deferredPrompt;
+        const installButton = document.getElementById('install-button');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.style.display = 'block';
+        });
+
+        installButton.addEventListener('click', async () => {
+            if (!deferredPrompt) {
+                return;
+            }
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response to install prompt: ${outcome}`);
+            deferredPrompt = null;
+            installButton.style.display = 'none';
+        });
+
+        window.addEventListener('appinstalled', (evt) => {
+            console.log('ZÜ The Black Bird app was installed.');
+            installButton.style.display = 'none';
+        });
+
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('data:application/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgZnVuY3Rpb24oZXZlbnQpIHsKICBjb25zb2xlLmxvZygnU2VydmljZSBXb3JrZXIgaW5zdGFsbGVkJyk7Cn0pOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGZ1bmN0aW9uKGV2ZW50KSB7CiAgZXZlbnQucmVzcG9uZFdpdGgoZmV0Y2goZXZlbnQucmVxdWVzdCkpOwp9KTs=')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
