@@ -1,1 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZÜ The Black Bird - Premium Spirits</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ZÜ The Black Bird">
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlpVXHUwMzA4IDogVGhlIEJsYWNrIEJpcmQiLAogICJzaG9ydF9uYW1lIjogIlpVXHUwMzA4IiwKICAic3RhcnRfdXJsIjogIi4vIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMGEwYTBhIiwKICAidGhlbWVfY29sb3IiOiAiIzAwMDAwMCIsCiAgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0LXByaW1hcnkiLAogICJzY29wZSI6ICIuLyIsCiAgImxhbmciOiAiZW4iLAogICJkZXNjcmlwdGlvbiI6ICJaVVx1MDMwOCA6IFRoZSBCbGFjayBCaXJkIC0gUHJlbWl1bSBTcGlyaXRzLiBXaGVyZSBkYXJrbmVzcyBtZWV0cyByZWZpbmVtZW50LiIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjNhV1IwYUQwaU1Ua3lJaUJvWldsbmFIUTlJakU1TWlJZ2RtbGxkMEp2ZUQwaU1DQXdJREU1TWlBeE9USWlJR1pwYkd3OUltNXZibVVpSUhodGJHNXpQU0pvZEhSd09pOHZkM2QzTG5jekxtOXlaeTh5TURBd0wzTjJaeUkrUEhKbFkzUWdkMmxrZEdnOUlqRTVNaUlnYUdWcFoyaDBQU0k0T1RJaUlISjRQU0l5TkNJZ1ptbHNiRDBpSXpBd01EQXdNQ0l2UGp3dmMzWm5QZz09IiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlOVEV5SWlCb1pXbG5hSFE5SWpVeE1pSWdkbWxsZDBKdmVEMGlNQ0F3SURVM01pQTFNVElpSUdacGJHdzlJbTV2Ym1VaUlIaHRiRzV6UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk5eU1EQXdNQzl6ZG1jaVBqeHlaV04wSUhkcFpIUm9QU0kxTVRJaUlHaGxhV2RvZEQwaU5URXlJaUJ5ZUQwaU5qUWlJR1pwYkd3OUlpTXdNREF3TURBaUx6NDhMM04yWno0PSIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0KICBdCn0=">`
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Georgia', serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #ffffff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="80" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="60" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .bird-silhouette {
+            position: absolute;
+            right: -10%;
+            top: 10%;
+            width: 60%;
+            height: 80%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><path d="M200 50 L180 80 L160 70 L140 90 L120 85 L100 110 L90 130 L85 150 L80 170 L85 190 L90 210 L100 230 L120 250 L140 270 L160 280 L180 290 L200 300 L220 290 L240 280 L260 270 L280 250 L300 230 L310 210 L315 190 L320 170 L315 150 L310 130 L300 110 L280 85 L260 90 L240 70 L220 80 Z M150 120 C150 115 155 110 160 110 S170 115 170 120 S165 130 160 130 S150 125 150 120 Z M230 120 C230 115 235 110 240 110 S250 115 250 120 S245 130 240 130 S230 125 230 120 Z" fill="%23000000" opacity="0.3"/></svg>') no-repeat center;
+            background-size: contain;
+            opacity: 0.2;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-content {
+            z-index: 10;
+            max-width: 800px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 30px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 0 50px rgba(255, 255, 255, 0.8), 0 0 100px rgba(255, 255, 255, 0.3); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #ffffff, #e0e0e0, #ffffff);
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Download App Banner */
+        .download-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1a1a1a, #000000);
+            border-bottom: 2px solid #ffffff;
+            z-index: 1002;
+            padding: 1rem;
+            transform: translateY(-100%);
+            transition: transform 0.5s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .download-banner.show {
+            transform: translateY(0);
+        }
+
+        .download-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .download-content h3 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .download-content p {
+            color: #ffffff;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #ffffff, #e0e0e0);
+            color: #000000;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .close-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+        }
+
+        /* App Download Section in Footer */
+        .app-download-section {
+            background: linear-gradient(135deg, #1a1a1a, #000000);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 2rem;
+        }
+
+        .app-download-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .app-download-content h3 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-download-content p {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .app-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .app-feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .app-feature h4 {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-feature p {
+            color: #ffffff;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Product Image Section */
+        .product-image-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .product-image:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 30px 60px rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .image-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.3);
+        }
+
+        .product-card h3 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .product-card p {
+            color: #ffffff;
+            line-height: 1.6;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            margin: 5rem 0;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 20 L90 40 L80 35 L70 50 L60 45 L50 65 L45 75 L40 85 L35 95 L40 105 L45 115 L50 125 L60 135 L70 145 L80 150 L90 155 L100 160 L110 155 L120 150 L130 145 L140 135 L150 125 L155 115 L160 105 L165 95 L160 85 L155 75 L150 65 L140 45 L130 50 L120 35 L110 40 Z" fill="%23ffffff" opacity="0.1"/></svg>') no-repeat center;
+            background-size: contain;
+        }
+
+        .about-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ffffff;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            background: #0a0a0a;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item p {
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+
+        footer p {
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 0 1rem;
+            }
+            
+            .bird-silhouette {
+                display: none;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .product-image {
+                max-width: 250px;
+            }
+
+            .image-glow {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">ZÜ</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Premium Drink</a></li>
+                <li><a href="#about">Quality</a></li>
+                <li><a href="#contact">Craftsmanship</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Install App Button -->
+    <button id="install-button" class="install-button">Install App</button>
+    
+    <!-- Download App Section -->
+    <div id="download-app-banner" class="download-banner">
+        <div class="download-content">
+            <h3>📱 Download Our App!</h3>
+            <p>Get the best experience with our mobile app</p>
+            <div class="download-buttons">
+                <a href="#" id="download-apk" class="download-btn">
+                    📥 Download APK
+                </a>
+                <button id="install-pwa" class="download-btn">
+                    ⚡ Install App
+                </button>
+            </div>
+            <button id="close-banner" class="close-btn">✕</button>
+        </div>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="bird-silhouette"></div>
+        <div class="hero-content">
+            <h1>ZÜ : The Black Bird</h1>
+            <p>Where darkness meets refinement</p>
+            <a href="#products" class="cta-button">Experience Premium Excellence</a>
+        </div>
+    </section>
+
+    <!-- Product Image Section -->
+    <section class="product-image-section fade-in">
+        <div class="product-image-container">
+            <div class="image-glow"></div>
+            <img src="images/zu-energy-drink.jpg" alt="ZÜ The Black Bird Premium Drink" class="product-image">
+        </div>
+    </section>
+
+    <section id="products" class="fade-in">
+        <h2 class="section-title">ZÜ : The Black Bird Premium Drink</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <h3>Exquisite Craftsmanship</h3>
+                <p>ZÜ : The Black Bird is a meticulously crafted premium drink using the finest ingredients sourced from around the world. Our master craftsmen employ time-honored techniques passed down through generations, creating a beverage of unparalleled complexity and sophistication.</p>
+            </div>
+            <div class="product-card">
+                <h3>Premium Flavor Profile</h3>
+                <p>Experience the rich tapestry of flavors - deep notes of dark chocolate and roasted coffee beans, complemented by hints of vanilla, caramel, and exotic spices. Each sip reveals new layers of complexity, finishing with a smooth, warming embrace that lingers beautifully.</p>
+            </div>
+            <div class="product-card">
+                <h3>Luxury Experience</h3>
+                <p>Presented in an elegantly crafted bottle that reflects the premium nature of its contents. ZÜ : The Black Bird is not just a drink - it's a statement of refined taste, perfect for those who appreciate the finer things in life and seek extraordinary experiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about fade-in">
+        <div class="about-content">
+            <h2 class="section-title">The Premium Spirit</h2>
+            <p>
+                ZÜ : The Black Bird represents the pinnacle of premium drinks craftsmanship. Crafted in small batches using only the finest ingredients and purest water, each bottle embodies decades of expertise and passion. Our unique creation process develops the distinctive character that sets ZÜ : The Black Bird apart from ordinary beverages.
+                <br><br>
+                The result is a premium drink of extraordinary depth and smoothness - a testament to our unwavering commitment to excellence. Every drop captures the essence of luxury, making ZÜ : The Black Bird the perfect choice for discerning connoisseurs who demand nothing but the best.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact fade-in">
+        <h2 class="section-title">Premium Craftsmanship</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>Artisan Creation</h3>
+                <p>Handcrafted in small batches<br>Using traditional methods</p>
+            </div>
+            <div class="contact-item">
+                <h3>Premium Ingredients</h3>
+                <p>Finest imported components<br>Pure mountain spring water</p>
+            </div>
+            <div class="contact-item">
+                <h3>Perfect Balance</h3>
+                <p>Carefully balanced flavors<br>Years of recipe perfection</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Download Section -->
+    <section class="app-download-section">
+        <div class="app-download-content">
+            <h3>📱 Get Our Mobile App</h3>
+            <p>Experience ZÜ : The Black Bird with our premium mobile application. Enjoy offline access, faster loading, and a native app experience.</p>
+            
+            <div class="app-features">
+                <div class="app-feature">
+                    <h4>⚡ Lightning Fast</h4>
+                    <p>Optimized performance for smooth browsing</p>
+                </div>
+                <div class="app-feature">
+                    <h4>📱 Native Experience</h4>
+                    <p>Full-screen app experience without browser bars</p>
+                </div>
+                <div class="app-feature">
+                    <h4>🔄 Offline Access</h4>
+                    <p>Browse content even without internet connection</p>
+                </div>
+            </div>
+            
+            <div class="download-buttons">
+                <a href="https://sambhav04-tech.github.io/zu-blackbird-app/zu-blackbird.apk" id="main-download-apk" class="download-btn">
+                    📥 Download APK (Android)
+                </a>
+                <button id="main-install-pwa" class="download-btn">
+                    ⚡ Install Web App
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ZÜ : The Black Bird. All rights reserved. | Enjoy Responsibly.</p>
+        <p style="margin-top: 1rem; color: #d4af37;">For more help or contact: zutheblackbird@gmail.com</p>
+    </footer>
+
+    <script>
+        // App Download Functionality
+        let deferredPrompt;
+        const installButton = document.getElementById('install-button');
+        const downloadBanner = document.getElementById('download-app-banner');
+        const closeBanner = document.getElementById('close-banner');
+        const installPWA = document.getElementById('install-pwa');
+        const mainInstallPWA = document.getElementById('main-install-pwa');
+        const downloadAPK = document.getElementById('download-apk');
+        const mainDownloadAPK = document.getElementById('main-download-apk');
+
+        // Show download banner after 3 seconds (only if not installed)
+        setTimeout(() => {
+            if (!window.matchMedia('(display-mode: standalone)').matches) {
+                downloadBanner.classList.add('show');
+            }
+        }, 3000);
+
+        // Close banner
+        closeBanner.addEventListener('click', () => {
+            downloadBanner.classList.remove('show');
+            localStorage.setItem('bannerClosed', 'true');
+        });
+
+        // Check if banner was previously closed
+        if (localStorage.getItem('bannerClosed') === 'true') {
+            downloadBanner.style.display = 'none';
+        }
+
+        // PWA Install functionality
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.style.display = 'block';
+        });
+
+        // Install PWA function
+        async function installPWAApp() {
+            if (!deferredPrompt) {
+                // Fallback for browsers that don't support PWA install
+                alert('To install this app:\n\n1. Open Chrome menu (⋮)\n2. Select "Add to Home screen"\n3. Tap "Install"');
+                return;
+            }
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response to install prompt: ${outcome}`);
+            deferredPrompt = null;
+            downloadBanner.classList.remove('show');
+        }
+
+        // Event listeners for install buttons
+        [installPWA, mainInstallPWA, installButton].forEach(button => {
+            if (button) {
+                button.addEventListener('click', installPWAApp);
+            }
+        });
+
+        // APK Download functionality
+        function downloadAPKFile() {
+            // Update APK URL with your GitHub username
+            const apkUrl = 'https://sambhav04-tech.github.io/zu-blackbird-app/zu-blackbird.apk';
+            
+            // Create a temporary link to trigger download
+            const link = document.createElement('a');
+            link.href = apkUrl;
+            link.download = 'zu-blackbird.apk';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Show instructions
+            alert('📥 APK Download Started!\n\n📋 Installation Steps:\n1. Check your Downloads folder\n2. Tap the APK file\n3. Allow "Install from Unknown Sources" if prompted\n4. Follow installation wizard');
+        }
+
+        // Event listeners for APK download
+        [downloadAPK, mainDownloadAPK].forEach(button => {
+            if (button) {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    downloadAPKFile();
+                });
+            }
+        });
+
+        // Hide banner when app is already installed
+        window.addEventListener('appinstalled', (evt) => {
+            console.log('ZÜ The Black Bird app was installed.');
+            downloadBanner.style.display = 'none';
+        });
+
+        // Detect if running in app mode
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            downloadBanner.style.display = 'none';
+            document.querySelector('.app-download-section').style.display = 'none';
+        }
+
+        // Service Worker registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('data:application/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgZnVuY3Rpb24oZXZlbnQpIHsKICBjb25zb2xlLmxvZygnU2VydmljZSBXb3JrZXIgaW5zdGFsbGVkJyk7Cn0pOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGZ1bmN0aW9uKGV2ZW50KSB7CiAgZXZlbnQucmVzcG9uZFdpdGgoZmV0Y2goZXZlbnQucmVxdWVzdCkpOwp9KTs=')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add subtle parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const bird = document.querySelector('.bird-silhouette');
+            
+            if (hero && bird) {
+                bird.style.transform = `translateY(${scrolled * 0.3}px) rotate(${scrolled * 0.02}deg)`;
+            }
+        });
+
+        // Add interactive hover effects
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(-10px) rotateX(0deg) rotateY(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>
